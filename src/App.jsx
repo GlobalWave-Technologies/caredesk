@@ -642,6 +642,7 @@ function App() {
   const [staffName, setStaffName] = useState('Dr. Akosua Mensah')
   const [department, setDepartment] = useState('General medicine')
   const [activePage, setActivePage] = useState('Overview')
+  const [mobileNavOpen, setMobileNavOpen] = useState(false)
   const [query, setQuery] = useState('')
   const [patientDepartmentFilter, setPatientDepartmentFilter] = useState('All departments')
   const [patientStatusFilter, setPatientStatusFilter] = useState('All statuses')
@@ -650,6 +651,11 @@ function App() {
   const [legalDocument, setLegalDocument] = useState('')
   const [notice, setNotice] = useState('')
   const [patientList, setPatientList] = useState(patients)
+
+  function navigateToPage(page) {
+    setActivePage(page)
+    setMobileNavOpen(false)
+  }
 
   const visiblePatients = useMemo(() => patientList.filter((patient) =>
     `${patient.name} ${patient.id} ${patient.department}`.toLowerCase().includes(query.toLowerCase()),
@@ -735,26 +741,27 @@ function App() {
 
   return (
     <div className="app-shell">
-      <aside className="sidebar">
+      <aside id="workspace-sidebar" className={`sidebar ${mobileNavOpen ? 'mobile-open' : ''}`}>
         <Brand />
         <div className="workspace-switcher"><span className="workspace-icon">GH</span><span><b>Greenfield Hospital</b><small>{department}</small></span><ChevronDown size={15} /></div>
         <span className="nav-caption">WORKSPACE</span>
         <nav className="main-nav" aria-label="Main navigation">
-          {navItems.map(({ label, icon: Icon }) => <button key={label} className={`nav-item ${activePage === label ? 'active' : ''}`} onClick={() => setActivePage(label)}><Icon size={18} /><span>{label}</span>{label === 'Appointments' && <span className="nav-count">8</span>}</button>)}
+          {navItems.map(({ label, icon: Icon }) => <button key={label} className={`nav-item ${activePage === label ? 'active' : ''}`} onClick={() => navigateToPage(label)}><Icon size={18} /><span>{label}</span>{label === 'Appointments' && <span className="nav-count">8</span>}</button>)}
         </nav>
         <span className="nav-caption tools-caption">CARE TOOLS</span>
-        <button className="nav-item" onClick={() => setActivePage('Maternity')}><Baby size={18} /><span>Maternity</span><span className="nav-new">NEW</span></button>
-        <button className="nav-item" onClick={() => setActivePage('Reports')}><Activity size={18} /><span>Reports & insights</span></button>
+        <button className="nav-item" onClick={() => navigateToPage('Maternity')}><Baby size={18} /><span>Maternity</span><span className="nav-new">NEW</span></button>
+        <button className="nav-item" onClick={() => navigateToPage('Reports')}><Activity size={18} /><span>Reports & insights</span></button>
         <div className="sidebar-bottom">
           <div className="help-card"><div className="help-icon"><HeartPulse size={18} /></div><b>Care starts here</b><p>Need help with your workspace?</p><button onClick={() => setNotice('Support team notified. We’ll be in touch shortly.')}>Contact support <ChevronRight size={14} /></button></div>
-          <button className="nav-item settings-link" onClick={() => setActivePage('Settings')}><Settings size={18} /><span>Settings</span></button>
+          <button className="nav-item settings-link" onClick={() => navigateToPage('Settings')}><Settings size={18} /><span>Settings</span></button>
           <div className="profile-row"><span className="avatar profile-avatar">AM</span><span className="profile-info"><b>{staffName}</b><small>{department} · Staff</small></span><button className="icon-button profile-menu" title="Sign out" aria-label="Sign out" onClick={() => setSignedIn(false)}><LogOut size={16} /></button></div>
         </div>
       </aside>
+      <button className={`mobile-nav-backdrop ${mobileNavOpen ? 'visible' : ''}`} type="button" aria-label="Close navigation" onClick={() => setMobileNavOpen(false)} />
 
       <main className="main-area">
         <header className="topbar">
-          <button className="mobile-menu icon-button" aria-label="Open menu"><Menu size={20} /></button>
+          <button className="mobile-menu icon-button" aria-label={mobileNavOpen ? 'Close menu' : 'Open menu'} aria-expanded={mobileNavOpen} aria-controls="workspace-sidebar" onClick={() => setMobileNavOpen((isOpen) => !isOpen)}><Menu size={20} /></button>
           <div className="breadcrumb">Workspace <ChevronRight size={14} /> <b>{activePage}</b></div>
           <div className="topbar-actions"><span className="today-label"><CalendarDays size={16} /> Monday, 26 October 2026</span><button className={`icon-button notification-button ${showNotifications ? 'selected' : ''}`} title="Notifications" aria-label="Notifications" onClick={() => setShowNotifications(!showNotifications)}><Bell size={18} /><i /></button><span className="avatar top-avatar">AM</span></div>
           {showNotifications && <div className="notification-popover"><b>Notifications</b><p><span className="notification-dot" /> 3 patients are waiting for check-in</p><p><span className="notification-dot yellow" /> Maternity round begins at 11:00 AM</p><button onClick={() => setShowNotifications(false)}>Mark all as read</button></div>}
