@@ -22,6 +22,15 @@ const appointments = [
 
 const patients = ['Ama Serwaa', 'Kwame Asante', 'Abena Owusu', 'Yaw Frimpong'];
 
+function GhanaHealthLogo() {
+  return (
+    <View style={styles.logoBadge}>
+      <View style={styles.logoCircle} />
+      <Text style={styles.logoText}>GHS</Text>
+    </View>
+  );
+}
+
 export default function App() {
   const [signedIn, setSignedIn] = useState(false);
   const [staffName, setStaffName] = useState('Akosua Mensah');
@@ -42,7 +51,7 @@ export default function App() {
       <View style={styles.loginScreen}>
         <StatusBar style="dark" />
         <View style={styles.loginBrand}>
-          <View style={styles.brandMark}><HeartPulse size={19} color="#FFFFFF" strokeWidth={2.6} /></View>
+          <View style={styles.brandMark}><GhanaHealthLogo /></View>
           <Text style={styles.brandText}>Care<Text style={styles.brandLight}>Desk</Text></Text>
         </View>
         <View style={styles.loginContent}>
@@ -75,7 +84,7 @@ export default function App() {
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
         <View style={styles.topRow}>
           <View style={styles.brand}>
-            <View style={styles.brandMark}><HeartPulse size={19} color="#FFFFFF" strokeWidth={2.6} /></View>
+            <View style={styles.brandMark}><GhanaHealthLogo /></View>
             <Text style={styles.brandText}>Care<Text style={styles.brandLight}>Desk</Text></Text>
           </View>
           <Pressable accessibilityLabel="Notifications" onPress={() => Alert.alert('Notifications', '3 patients are waiting for check-in.')} style={styles.iconButton}>
@@ -207,7 +216,10 @@ const styles = StyleSheet.create({
     marginBottom: 27,
   },
   brand: { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  brandMark: { width: 32, height: 32, borderRadius: 10, borderBottomLeftRadius: 4, backgroundColor: palette.green, alignItems: 'center', justifyContent: 'center' },
+  brandMark: { width: 34, height: 34, borderRadius: 17, borderWidth: 2, borderColor: palette.green, backgroundColor: '#F6F8F3', alignItems: 'center', justifyContent: 'center' },
+  logoBadge: { width: 30, height: 30, borderRadius: 15, backgroundColor: '#F4D55B', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' },
+  logoCircle: { position: 'absolute', width: 28, height: 28, borderRadius: 14, borderWidth: 2, borderColor: palette.green, backgroundColor: 'transparent' },
+  logoText: { color: '#184B42', fontSize: 8, fontWeight: '900', letterSpacing: 0.5 },
   brandText: { color: palette.ink, fontSize: 20, fontWeight: '800', letterSpacing: 0 },
   brandLight: { color: palette.green, fontWeight: '500' },
   iconButton: { width: 36, height: 36, borderWidth: 1, borderColor: palette.line, borderRadius: 9, backgroundColor: '#FFFFFF', alignItems: 'center', justifyContent: 'center' },

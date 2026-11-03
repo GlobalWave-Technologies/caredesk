@@ -150,10 +150,22 @@ const navItems = [
   { label: 'Medical records', icon: FileText },
 ]
 
+function GhanaHealthLogo() {
+  return (
+    <svg className="brand-crest" viewBox="0 0 200 200" aria-hidden="true">
+      <circle cx="100" cy="100" r="90" fill="#f7f9f4" stroke="#1d7e5e" strokeWidth="8" />
+      <circle cx="100" cy="100" r="68" fill="#f1d35d" />
+      <path d="M44 118C60 74 76 52 100 40c26 12 42 34 56 78-18 16-38 27-56 33-20-6-38-17-56-33Z" fill="#1d7e5e" opacity="0.15" />
+      <path d="M54 115c8-18 21-32 46-36 21 3 36 17 46 36-11 14-24 23-46 27-22-4-36-13-46-27Z" fill="#1d7e5e" opacity="0.2" />
+      <text x="100" y="118" textAnchor="middle" fontSize="54" fontWeight="900" fill="#185b48" fontFamily="Arial, Helvetica, sans-serif">GHS</text>
+    </svg>
+  )
+}
+
 function Brand({ compact = false }) {
   return (
     <div className={`brand ${compact ? 'brand-compact' : ''}`}>
-      <span className="brand-mark"><HeartPulse size={21} strokeWidth={2.5} /></span>
+      <span className="brand-mark"><GhanaHealthLogo /></span>
       <span>Care<span className="brand-light">Desk</span></span>
     </div>
   )

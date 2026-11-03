@@ -2,7 +2,9 @@ html, body, #root { margin: 0; width: 100%; max-width: 100%; overflow-x: hidden;
 *, *::before, *::after { box-sizing: border-box; }
 .app-shell { min-height: 100vh; display: flex; background: var(--canvas); overflow-x: hidden; }
 .brand { display: flex; align-items: center; gap: 10px; color: var(--ink); font-family: 'Manrope', sans-serif; font-size: 22px; font-weight: 800; letter-spacing: 0; }
-.brand-mark { display: grid; width: 36px; height: 36px; place-items: center; color: white; background: var(--green); border-radius: 11px 11px 11px 4px; }
+.brand-mark { display: grid; width: 36px; height: 36px; place-items: center; overflow: hidden; border-radius: 50%; background: #fff; border: 2px solid var(--green); box-shadow: 0 3px 10px rgba(23, 88, 63, 0.08); }
+.brand-mark svg { display: block; width: 100%; height: 100%; }
+.brand-crest { width: 100%; height: 100%; }
 .brand-light { color: var(--green); font-weight: 500; }
 .sidebar { position: fixed; z-index: 5; inset: 0 auto 0 0; display: flex; width: 254px; flex-direction: column; padding: 26px 17px 14px; border-right: 1px solid var(--line); background: #fff; }
 .sidebar > .brand { padding: 0 9px 28px; }
