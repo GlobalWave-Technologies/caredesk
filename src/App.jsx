@@ -153,11 +153,11 @@ const navItems = [
 function GhanaHealthLogo() {
   return (
     <svg className="brand-crest" viewBox="0 0 200 200" aria-hidden="true">
-      <circle cx="100" cy="100" r="90" fill="#f7f9f4" stroke="#1d7e5e" strokeWidth="8" />
-      <circle cx="100" cy="100" r="68" fill="#f1d35d" />
-      <path d="M44 118C60 74 76 52 100 40c26 12 42 34 56 78-18 16-38 27-56 33-20-6-38-17-56-33Z" fill="#1d7e5e" opacity="0.15" />
-      <path d="M54 115c8-18 21-32 46-36 21 3 36 17 46 36-11 14-24 23-46 27-22-4-36-13-46-27Z" fill="#1d7e5e" opacity="0.2" />
-      <text x="100" y="118" textAnchor="middle" fontSize="54" fontWeight="900" fill="#185b48" fontFamily="Arial, Helvetica, sans-serif">GHS</text>
+      <circle cx="100" cy="100" r="90" fill="#f8f9f5" stroke="#1e7d5b" strokeWidth="6" />
+      <path d="M30 128c16-40 32-62 70-80 37 18 54 40 70 80-24 18-47 29-70 34-23-5-46-16-70-34Z" fill="#1f8a67" opacity="0.12" />
+      <circle cx="100" cy="100" r="68" fill="#f3d858" />
+      <path d="M54 126c9-16 18-27 46-34 26 8 36 18 46 34-11 13-23 22-46 28-23-6-38-15-46-28Z" fill="#1e7d5b" opacity="0.18" />
+      <text x="100" y="120" textAnchor="middle" fontSize="40" fontWeight="900" fill="#1a5d47" letterSpacing="1" fontFamily="Arial, Helvetica, sans-serif">GHS</text>
     </svg>
   )
 }

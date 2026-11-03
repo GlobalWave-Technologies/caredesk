@@ -217,7 +217,7 @@ const styles = StyleSheet.create({
   },
   brand: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   brandMark: { width: 34, height: 34, borderRadius: 17, borderWidth: 2, borderColor: palette.green, backgroundColor: '#F6F8F3', alignItems: 'center', justifyContent: 'center' },
-  logoBadge: { width: 30, height: 30, borderRadius: 15, backgroundColor: '#F4D55B', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' },
+  logoBadge: { width: 30, height: 30, borderRadius: 15, backgroundColor: '#F4D55B', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', borderWidth: 2, borderColor: palette.green },
   logoCircle: { position: 'absolute', width: 28, height: 28, borderRadius: 14, borderWidth: 2, borderColor: palette.green, backgroundColor: 'transparent' },
   logoText: { color: '#184B42', fontSize: 8, fontWeight: '900', letterSpacing: 0.5 },
   brandText: { color: palette.ink, fontSize: 20, fontWeight: '800', letterSpacing: 0 },
