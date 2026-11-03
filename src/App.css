@@ -44,8 +44,11 @@ html, body, #root { margin: 0; width: 100%; max-width: 100%; overflow-x: hidden;
 .icon-button:hover, .icon-button.selected { background: #f0f4f0; color: var(--green); }
 .profile-menu { width: 28px; height: 28px; }
 .main-area { width: calc(100% - 254px); min-width: 0; min-height: 100vh; margin-left: 254px; }
-.topbar { position: sticky; z-index: 4; top: 0; display: flex; height: 61px; align-items: center; justify-content: space-between; padding: 0 38px; border-bottom: 1px solid var(--line); background: rgba(255,255,255,.94); backdrop-filter: blur(12px); }
-.breadcrumb { display: flex; align-items: center; gap: 9px; color: #93a097; font-size: 11px; }
+.topbar { position: sticky; z-index: 4; top: 0; display: flex; height: 61px; align-items: center; justify-content: space-between; gap: 12px; padding: 0 38px; border-bottom: 1px solid var(--line); background: rgba(255,255,255,.94); backdrop-filter: blur(12px); }
+.topbar-brand { display: flex; align-items: center; }
+.topbar .brand { font-size: 18px; }
+.topbar .brand-mark { width: 30px; height: 30px; }
+.breadcrumb { display: flex; flex: 1; align-items: center; gap: 9px; color: #93a097; font-size: 11px; }
 .breadcrumb b { color: #45584c; font-weight: 600; }
 .topbar-actions { display: flex; align-items: center; gap: 17px; }
 .today-label { display: flex; align-items: center; gap: 7px; color: #758279; font-size: 11px; }

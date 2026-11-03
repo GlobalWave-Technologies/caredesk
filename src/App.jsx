@@ -774,6 +774,7 @@ function App() {
       <main className="main-area">
         <header className="topbar">
           <button className="mobile-menu icon-button" aria-label={mobileNavOpen ? 'Close menu' : 'Open menu'} aria-expanded={mobileNavOpen} aria-controls="workspace-sidebar" onClick={() => setMobileNavOpen((isOpen) => !isOpen)}><Menu size={20} /></button>
+          <div className="topbar-brand"><Brand compact /></div>
           <div className="breadcrumb">Workspace <ChevronRight size={14} /> <b>{activePage}</b></div>
           <div className="topbar-actions"><span className="today-label"><CalendarDays size={16} /> Monday, 26 October 2026</span><button className={`icon-button notification-button ${showNotifications ? 'selected' : ''}`} title="Notifications" aria-label="Notifications" onClick={() => setShowNotifications(!showNotifications)}><Bell size={18} /><i /></button><span className="avatar top-avatar">AM</span></div>
           {showNotifications && <div className="notification-popover"><b>Notifications</b><p><span className="notification-dot" /> 3 patients are waiting for check-in</p><p><span className="notification-dot yellow" /> Maternity round begins at 11:00 AM</p><button onClick={() => setShowNotifications(false)}>Mark all as read</button></div>}
